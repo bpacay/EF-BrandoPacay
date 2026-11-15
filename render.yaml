@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: registro-estudiantes
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/config
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: RECAPTCHA_SITE_KEY
+        sync: false
+      - key: RECAPTCHA_SECRET_KEY
+        sync: false
+      - key: CORS_ORIGINS
+        value: "*"

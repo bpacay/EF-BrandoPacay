@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Estudiantes</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">Registro de Estudiantes</a>
+      <nav class="nav">
+        <a href="index.html" aria-current="page">Registro</a>
+        <a href="consulta.html">Consulta</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1>Formulario de registro</h1>
+      <p class="subtitle">Completa todos los campos. El botón se habilita cuando todo sea válido.</p>
+
+      <div id="alerta" class="alert" role="status" hidden></div>
+
+      <form id="formRegistro" class="card" novalidate autocomplete="off">
+        <div class="grid">
+          <div class="field" data-campo="carne">
+            <label for="carne">Carné <span class="req">*</span></label>
+            <input type="text" id="carne" name="carne" maxlength="20" placeholder="Ej. 0901202312345" autocomplete="off">
+            <span class="hint">Mínimo 8 caracteres, solo letras y números.</span>
+            <span class="error-msg" id="carne-error"></span>
+          </div>
+
+          <div class="field" data-campo="correo">
+            <label for="correo">Correo electrónico <span class="req">*</span></label>
+            <input type="email" id="correo" name="correo" maxlength="100" placeholder="nombre@dominio.com" autocomplete="email">
+            <span class="error-msg" id="correo-error"></span>
+          </div>
+
+          <div class="field" data-campo="nombres">
+            <label for="nombres">Nombres <span class="req">*</span></label>
+            <input type="text" id="nombres" name="nombres" maxlength="60" placeholder="Ej. Brandon Alexander" autocomplete="given-name">
+            <span class="error-msg" id="nombres-error"></span>
+          </div>
+
+          <div class="field" data-campo="apellidos">
+            <label for="apellidos">Apellidos <span class="req">*</span></label>
+            <input type="text" id="apellidos" name="apellidos" maxlength="60" placeholder="Ej. Pacay López" autocomplete="family-name">
+            <span class="error-msg" id="apellidos-error"></span>
+          </div>
+
+          <div class="field" data-campo="carrera">
+            <label for="carrera">Carrera <span class="req">*</span></label>
+            <select id="carrera" name="carrera">
+              <option value="">-- Selecciona una carrera --</option>
+            </select>
+            <span class="error-msg" id="carrera-error"></span>
+          </div>
+
+          <div class="field" data-campo="telefono">
+            <label for="telefono">Teléfono <span class="req">*</span></label>
+            <input type="tel" id="telefono" name="telefono" maxlength="9" inputmode="numeric" placeholder="XXXX-XXXX" autocomplete="tel">
+            <span class="error-msg" id="telefono-error"></span>
+          </div>
+
+          <div class="field" data-campo="fechaNacimiento">
+            <label for="fechaNacimiento">Fecha de nacimiento <span class="req">*</span></label>
+            <input type="date" id="fechaNacimiento" name="fechaNacimiento">
+            <span class="hint">Debes tener al menos 16 años.</span>
+            <span class="error-msg" id="fechaNacimiento-error"></span>
+          </div>
+
+          <fieldset class="field" data-campo="genero">
+            <legend>Género <span class="req">*</span></legend>
+            <div class="radios">
+              <label><input type="radio" name="genero" value="Femenino"> Femenino</label>
+              <label><input type="radio" name="genero" value="Masculino"> Masculino</label>
+              <label><input type="radio" name="genero" value="Otro"> Otro</label>
+            </div>
+            <span class="error-msg" id="genero-error"></span>
+          </fieldset>
+
+          <!-- Honeypot anti-bots: no lo llenes -->
+          <div class="hp" aria-hidden="true">
+            <label for="website">Sitio web</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="captcha-wrap full">
+            <div id="recaptcha"></div>
+            <span class="captcha-note" id="captchaNota">Cargando verificación reCAPTCHA…</span>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="submit" id="btnRegistrar" class="btn btn-primary" disabled>Registrar estudiante</button>
+          <button type="button" id="btnLimpiar" class="btn btn-secondary">Limpiar</button>
+          <span class="status-hint" id="estadoBoton"></span>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/validacion.js"></script>
+  <script src="js/registro.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit&hl=es" async defer></script>
+</body>
+</html>

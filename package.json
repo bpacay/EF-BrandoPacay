@@ -1,0 +1,19 @@
+{
+  "name": "registro-estudiantes",
+  "version": "1.0.0",
+  "description": "Formulario de registro de estudiantes con web service REST (POST/GET) en la nube y reCAPTCHA",
+  "main": "server.js",
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server.js",
+    "dev": "node --watch --env-file-if-exists=.env server.js"
+  },
+  "engines": {
+    "node": ">=22.9"
+  },
+  "author": "Brandon Pacay",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2",
+    "pg": "^8.23.1"
+  }
+}
